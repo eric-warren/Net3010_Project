@@ -1,0 +1,48 @@
+a{
+    text-decoration: none;
+    color: #131112;
+}
+a:hover{
+    color:#454244;
+}
+.navbar{
+    height: 5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid lightgrey;
+}
+.navbar-nav{
+    margin: auto;
+    margin-right: 1%;
+}
+.navbar-brand {
+    transform: translateX(-50%);
+    left: 50%;
+    position: absolute;
+    font-size: 4rem;
+}
+body{
+    background-color: #F7F7FF;
+    color: #131112;
+}
+.post{
+    margin: auto;
+    width: 70%;
+    margin-top: 2%;
+    border: 2px solid #60656F;
+}
+.title{
+    width: max-content;
+    margin: auto;
+    padding: 3%
+}
+.img{
+    max-height: 35%;
+    max-width: 85%;
+    margin: auto;
+    display: block;
+}
+.desc{
+    width: 80%;
+    margin: auto;
+    padding: 3%
+}
