@@ -14,11 +14,13 @@ if (isset($_GET['title']) and isset($_GET['post']) and isset($_GET['img_path']))
     if($conn->query($sql) === true){
         echo "\nRecords inserted successfully.";
     } else{
+        http_response_code(400);
         echo "\nERROR: Could not able to execute $sql. " . $conn->error;
     }
     $conn->close();
 
 } else {
+    http_response_code(400);
     echo "your missing arguments you need title, post and img_path";
 }
 
