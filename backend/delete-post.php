@@ -7,6 +7,7 @@ $dbname = "myDB";
 if (isset($_GET['post'])) {
     $post = $_GET['post'];
 } else {
+    http_response_code(400);
     echo "You need to supply a title to delete";
 }
 
@@ -23,6 +24,7 @@ $sql = "DELETE FROM posts WHERE title='$post'";
 if ($conn->query($sql) === TRUE) {
   echo "Record deleted successfully";
 } else {
+http_response_code(400);
   echo "Error deleting record: " . $conn->error;
 }
 
