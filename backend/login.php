@@ -19,11 +19,9 @@ if (isset($_GET['user']) and isset($_GET['pass'])) {
         http_response_code(403);
         die('Forbidden');
     }
-    $emparray = array();
-    while($row =mysqli_fetch_assoc($result)){
-        $emparray[] = $row;
-    }
-    echo json_encode($emparray);
+    header("Location: ../admin.php?token=" . mysqli_fetch_all($result)[0][0]);
+    die();
+    
 
 } else {
     http_response_code(403);

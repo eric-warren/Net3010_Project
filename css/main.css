@@ -18,7 +18,7 @@ a:hover{
     transform: translateX(-50%);
     left: 50%;
     position: absolute;
-    font-size: 4rem;
+    font-size: 3rem;
 }
 body{
     background-color: #F7F7FF;
@@ -33,7 +33,7 @@ body{
 .title{
     width: max-content;
     margin: auto;
-    padding: 3%
+    padding: 3%;
 }
 .img{
     max-height: 35%;
@@ -45,4 +45,20 @@ body{
     width: 80%;
     margin: auto;
     padding: 3%
+}
+.login-cont{
+    padding-top: 5%;
+    width: 30%;
+    margin: auto;
+}
+.form-label-group{
+    padding-bottom: 5%;
+}
+.post-cont{
+    width: 50%;
+    margin: auto;
+}
+.post-page{
+    width: 80%;
+    margin: auto;
 }
