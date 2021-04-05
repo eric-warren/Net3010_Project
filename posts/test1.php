@@ -1,25 +1,4 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$db = "myDB";
-
-if (isset($_GET['title']) and isset($_GET['post']) and isset($_GET['img_path'])) {
-    $title = $_GET['title'];
-    $post = $_GET['post'];
-    $img_path = $_GET['img_path'];
-    $conn = new mysqli($servername, $username, $password, $db);
-
-    $sql = "INSERT INTO posts (title, post, img_path) VALUES ('$title', '$post', '$img_path')";
-    if($conn->query($sql) === true){
-        echo "\nRecords inserted successfully.";
-    } else{
-        http_response_code(400);
-        echo "\nERROR: Could not able to execute $sql. " . $conn->error;
-    }
-    $conn->close();
-    $myfile = fopen("../posts/$title.php", "w");
-    $txt = '<!doctype html>
+<!doctype html>
     <html class="no-js" lang="">
     
     <head>
@@ -51,20 +30,10 @@ if (isset($_GET['title']) and isset($_GET['post']) and isset($_GET['img_path']))
     </header>
     <body>
         <div class="post-page">
-            <h2 class="title">' . $title . '</h2>
-            <img class="img" src = "..' . $img_path . '">
-            <p class="desc">' . $post . '</p>
+            <h2 class="title">test1</h2>
+            <img class="img" src = "..img/placeholder.png">
+            <p class="desc">efhjqweiopgj[ioerw gfdsg w54rerewt</p>
         </div>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    </html>';
-    fwrite($myfile, $txt);
-    fclose($myfile);
-
-} else {
-    http_response_code(400);
-    echo "your missing arguments you need title, post and img_path";
-}
-
-
-?> 
+    </html>

@@ -2,6 +2,7 @@
 <html class="no-js" lang="">
 
 <head>
+    <?php session_start(); // persistentHTTP session ?>
     <meta charset="utf-8">
     <title>BitPress</title>
     <meta name="description" content="Company Blog for B&MW">
@@ -13,14 +14,14 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html">BitPress</a>
+            <a class="navbar-brand" href="index.php">BitPress</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a href="login.html" class="btn">Login</a>
+                        <a href="login.php" class="btn">Login</a>
                     </li>
                 </ul>
             </div>

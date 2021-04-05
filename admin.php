@@ -1,34 +1,21 @@
 <?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "myDB";
+session_start(); // persistentHTTP session
 
-if (isset($_GET['token'])) {
-    $token = $_GET['token'];
-    $sql = "select user from users where token='$token'";
-    $conn = new mysqli($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-    $result = mysqli_query($conn, $sql) or "";
-    if ($result == ""){
-        http_response_code(403);
-        die('Forbidden');
-    }
-    test(mysqli_fetch_all($result)[0][0]);
-}
-else{
+if (!isset($_SESSION["loggedin"])) {
+
     http_response_code(403);
     die('Forbidden');
-}
 
-function test($user) 
+}
+test();
+
+function test() 
     { 
       echo '<!doctype html>
       <html class="no-js" lang="">
       
       <head>
+        <?php session_start(); // persistentHTTP session ?>
           <meta charset="utf-8">
           <title>BitPress</title>
           <meta name="description" content="Company Blog for B&MW">
@@ -40,14 +27,14 @@ function test($user)
       <body>
           <nav class="navbar navbar-expand-lg navbar-light">
               <div class="container-fluid">
-                  <a class="navbar-brand" href="index.html">BitPress</a>
+                  <a class="navbar-brand" href="index.php">BitPress</a>
                       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                           <span class="navbar-toggler-icon"></span>
                       </button>
                   <div class="collapse navbar-collapse" id="navbarNav">
                       <ul class="navbar-nav">
                           <li class="nav-item">
-                              <a href="login.html" class="btn">Login</a>
+                              <a href="login.php" class="btn">Login</a>
                           </li>
                       </ul>
                   </div>
@@ -55,7 +42,7 @@ function test($user)
           </nav>
           
           <body>
-              <h2 class="title">Welcome ' . $user . '</h2>
+              <h2 class="title">Welcome ' . $_SESSION["userID"] . '</h2>
               <div class="post-cont">
                   <h3>Create a Blog Post</h3>
                   <form action="backend/create-post.php" method="get">
